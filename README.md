@@ -1,2 +1,3 @@
-# resume
-My personal resume
+> # Resume
+
+Code for my personal resume

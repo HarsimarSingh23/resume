@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Experience Timeline */
+.experience-line {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: -40px;
+  width: 2px;
+  background: theme('colors.blue.500');
+}
+
+.experience-dot {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: theme('colors.blue.500');
+  border: 3px solid theme('colors.gray.900');
+}
+
+/* Solar System */
+.solar-system {
+  position: relative;
+  width: 400px;
+  height: 800px;
+  margin: 0 auto;
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1.1px solid ;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-1 { width: 150px; height: 150px; animation: orbit 8s linear infinite; color: #339DDF;}
+.orbit-2 { width: 200px; height: 200px; animation: orbit 10s linear infinite; color: #EE4C2C;}
+.orbit-3 { width: 250px; height: 250px; animation: orbit 12s linear infinite; color: #47A248;}
+.orbit-4 { width: 300px; height: 300px; animation: orbit 15s linear infinite; color: #E25A1C;}
+.orbit-5 { width: 350px; height: 350px; animation: orbit 18s linear infinite; color: #E25A1C;}
+.orbit-6 { width: 400px; height: 400px; animation: orbit 21s linear infinite; color: #336791;}
+.orbit-7 { width: 450px; height: 450px; animation: orbit 25s linear infinite; color: #4285F4;}
+.orbit-8 { width: 500px; height: 500px; animation: orbit 29s linear infinite; color: #326CE5;}
+.orbit-9 { width: 550px; height: 550px; animation: orbit 31s linear infinite; color: #FF9900;}
+.orbit-10 { width: 600px; height: 600px; animation: orbit 35s linear infinite; color: #FFD21E;}
+
+
+.planet {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: counter-orbit 10s linear infinite;
+}
+
+/* Space Background */
+.space-bg {
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.math-star {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  animation: twinkle 4s infinite;
+  user-select: none;
+  filter: blur(2.1px);
+}
+
+/* Project Card */
+.project-card {
+  top: 100px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes counter-orbit {
+  from { transform: translateX(-50%) rotate(360deg); }
+  to { transform: translateX(-50%) rotate(0deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Tooltips */
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Legend */
+.legend {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.legend-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.legend-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.legend-list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
